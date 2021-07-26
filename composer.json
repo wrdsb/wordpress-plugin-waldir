@@ -1,0 +1,17 @@
+{
+    "name": "waldir/waldir",
+    "description": "",
+    "type": "wordpress-plugin",
+    "license": "GPL-3.0-or-later",
+    "authors": [
+        {
+            "name": "WRDSB",
+            "email": "website@wrdsb.ca"
+        }
+    ],
+    "autoload": {
+        "psr-4": {"WALDIR\\": "src/"}
+    },
+    "require": {
+    }
+}
