@@ -14,9 +14,9 @@ namespace WALDIR;
  * @package WALDIR
  *
  * @wordpress-plugin
- * Plugin Name: WALDIR
+ * Plugin Name: WALDIR Client
  * Plugin URI: https://github.com/wrdsb/wordpress-plugin-waldir
- * Description: Custom meta fields and API endpoints for Sites and Users.
+ * Description: Custom API endpoints to support the WALDIR service.
  * Version: 1.0.0
  * Author: WRDSB
  * Author URI: https://github.com/wrdsb
