@@ -1,6 +1,6 @@
 <?php
 namespace WALDIR\REST\PermissionChecks;
-use WRDSB\Staff\Modules\WP\WPCore as WPCore;
+use WALDIR\WP\WPCore as WPCore;
 
 /**
  * Define the "UpdateInstallItemPermissionsCheck" class
