@@ -66,6 +66,10 @@ class WPCore {
         return register_rest_route($namespace, $route, $args, $override);
     }
 
+    public static function registerRestField($object_type, $attribute, $args): bool {
+        return register_rest_field($object_type, $attribute, $args);
+    }
+
     public static function getOption(string $option, $default = false) {
         return get_option($option, $default);
     }
