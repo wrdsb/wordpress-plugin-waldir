@@ -11,16 +11,16 @@ use WALDIR\WP\WPCore as WPCore;
  * @package    WALDIR
  * @subpackage WALDIR/REST/
  */
-class UpdateSiteItem {
+abstract class UpdateSiteItem {
     /**
      * Check if a given request has access to update a specific item
      *
      * @param  WP_REST_Request $request Full details about the request.
      * @return boolean
      */
-    public function permissionsCheck(WP_REST_Request $request): bool {
+    public static function permissionsCheck(WP_REST_Request $request): bool {
 		// because this only makes sense in a multisite install:
-		$this->multisiteCheck();
+		self::multisiteCheck();
 
         if (WPCore::currentUserCan('setup_network')) {
             return true;
@@ -29,7 +29,7 @@ class UpdateSiteItem {
         $user = WPCore::getCurrentUser();
         if (empty($user)) return false;
 
-        $siteID = $this->getSiteID($request);
+        $siteID = self::getSiteID($request);
         if ($siteID === '') return false;
         
         WPCore::switchToBlog($siteID);
@@ -49,7 +49,7 @@ class UpdateSiteItem {
 	 * @param int $id Supplied ID.
 	 * @return WP_User|WP_Error True if ID is valid, WP_Error otherwise.
 	 */
-	protected function multisiteCheck() {
+	protected static function multisiteCheck() {
 		$error = new WP_Error( 'rest_multisite_check_failure', __( 'Bad Request: not a multisite install' ), array( 'status' => 400 ) );
 
         if ( ! WPCore::isMultisite() ) {
@@ -65,7 +65,7 @@ class UpdateSiteItem {
      * @param  WP_REST_Request $request Full details about the request.
      * @return string The form ID from the request.
      */
-    private function getSiteID(WP_REST_Request $request): string {
+    private static function getSiteID(WP_REST_Request $request): string {
         $params = $request->get_url_params();
         $siteID = $params['site'] ? $params['site'] : '';
 

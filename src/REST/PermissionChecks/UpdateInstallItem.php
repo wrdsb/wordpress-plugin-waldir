@@ -11,14 +11,14 @@ use WALDIR\WP\WPCore as WPCore;
  * @package    WALDIR
  * @subpackage WALDIR/REST/
  */
-class UpdateInstallItem {
+abstract class UpdateInstallItem {
     /**
      * Check if a given request has access to update a specific item
      *
      * @param  WP_REST_Request $request Full details about the request.
      * @return boolean
      */
-    public function permissionsCheck(WP_REST_Request $request): bool {
+    public static function permissionsCheck(WP_REST_Request $request): bool {
         $user = WPCore::getCurrentUser();
         if (empty($user)) return false;
 
