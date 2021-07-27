@@ -2,7 +2,7 @@
 namespace WALDIR\REST\Fields;
 use WALDIR\WP\WPCore;
 
-class Callbacks {
+abstract class Callbacks {
     /**
      * Handler for getting custom user meta field data.
      *
