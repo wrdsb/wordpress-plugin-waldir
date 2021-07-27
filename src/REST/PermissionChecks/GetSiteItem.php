@@ -29,10 +29,10 @@ class GetSiteItem {
         $user = WPCore::getCurrentUser();
         if (empty($user)) return false;
 
-        $blogID = $this->getBlogID($request);
-        if ($blogID === '') return false;
+        $siteID = $this->getSiteID($request);
+        if ($siteID === '') return false;
         
-        WPCore::switchToBlog($blogID);
+        WPCore::switchToBlog($siteID);
 		
         if (WPCore::userCan($user->id, 'manage_options')) {
             WPCore::restoreCurrentBlog();
@@ -58,4 +58,17 @@ class GetSiteItem {
 
 		return true;
 	}
+
+    /**
+     * Given a WP_REST_Request object, retrieve the corresponding site id.
+     *
+     * @param  WP_REST_Request $request Full details about the request.
+     * @return string The form ID from the request.
+     */
+    private function getSiteID(WP_REST_Request $request): string {
+        $params = $request->get_url_params();
+        $siteID = $params['site'] ? $params['site'] : '';
+
+        return $siteID;
+    }
 }
