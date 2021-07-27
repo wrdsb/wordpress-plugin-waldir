@@ -1,6 +1,6 @@
 <?php
-namespace WRDSB\Staff\Modules\WP;
-use WRDSB\Staff\Modules\WP\WPCore as WPCore;
+namespace WALDIR\WP;
+use WALDIR\WP\WPCore as WPCore;
 
 /**
  * The admin-specific functionality of the plugin.
