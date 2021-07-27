@@ -64,8 +64,7 @@ class UserByUsername extends WP_REST_Users_Controller {
      * @return boolean
      */
     public function getItemPermissionsCheck(WP_REST_Request $request): bool {
-		$permissionChecker = new GetPermissionCheck();
-        return $permissionChecker($request);
+        return GetPermissionCheck::permissionsCheck($request);
     }
 
     /**
@@ -75,8 +74,7 @@ class UserByUsername extends WP_REST_Users_Controller {
      * @return boolean
      */
     public function updateItemPermissionsCheck(WP_REST_Request $request): bool {
-		$permissionChecker = new UpdatePermissionCheck();
-        return $permissionChecker($request);
+		return UpdatePermissionCheck::permissionsCheck($request);
     }
 
 	/**
