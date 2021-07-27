@@ -11,7 +11,7 @@ use WALDIR\WP\WPCore;
  * @package    WALDIR
  * @subpackage WALDIR/REST/Fields
  */
-class EmployeeID {
+abstract class EmployeeID {
     public static function registerField() {
         WPCore::registerRESTField(
 			'user',
