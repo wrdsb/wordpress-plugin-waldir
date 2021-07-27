@@ -114,6 +114,8 @@ class WPCore {
     public static function isMultisite(): bool {
         return is_multisite();
     }
+
+    public static function getUserBy($field, $value) {
+        return get_user_by($field, $value);
+    }
 }
-
-
