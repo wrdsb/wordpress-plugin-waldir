@@ -1,8 +1,7 @@
 <?php
-namespace WRDSB\Staff\Modules\WP;
+namespace WALDIR\WP;
 
-class WPCore
-{
+class WPCore {
     public static function currentTime(string $arg = 'mysql'): string {
         return strval(current_time($arg));
     }
@@ -110,6 +109,10 @@ class WPCore
     public static function wpRedirect(string $location, int $status = 302, string $x_redirect_by = 'WordPress') {
         wp_redirect($location, $status, $x_redirect_by);
         exit;
+    }
+
+    public static function isMultisite(): bool {
+        return is_multisite();
     }
 }
 

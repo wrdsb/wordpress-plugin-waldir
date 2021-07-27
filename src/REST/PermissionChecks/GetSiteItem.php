@@ -20,7 +20,7 @@ class GetSiteItem {
      */
     public function permissionsCheck(WP_REST_Request $request): bool {
         // because this only makes sense in a multisite install:
-		$this->multisite_check();
+		$this->multisiteCheck();
 
         if (WPCore::currentUserCan('setup_network')) {
             return true;
@@ -52,7 +52,7 @@ class GetSiteItem {
 	protected function multisiteCheck() {
 		$error = new WP_Error( 'rest_multisite_check_failure', __( 'Bad Request: not a multisite install' ), array( 'status' => 400 ) );
 
-		if ( !is_multisite() ) {
+        if ( ! WPCore::isMultisite() ) {
 			return $error;
 		}
 

@@ -22,7 +22,7 @@ class GetInstallItem {
         $user = WPCore::getCurrentUser();
         if (empty($user)) return false;
 
-        if ( !is_multisite() ) {
+        if ( ! WPCore::isMultisite() ) {
             if (WPCore::userCan($user->id, 'manage_options')) {
                 WPCore::restoreCurrentBlog();
                 return true;
