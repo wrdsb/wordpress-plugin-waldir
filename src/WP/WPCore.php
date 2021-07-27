@@ -122,4 +122,20 @@ class WPCore {
     public static function getUserBy($field, $value) {
         return get_user_by($field, $value);
     }
+
+    public static function getUserMeta(int $user_id, string $key = '', bool $single = false) {
+        return get_user_meta($user_id, $key, $single);
+    }
+    
+    public static function getUserOption(string $option, int $user, string $deprecated = '') {
+        return get_user_option($option, $user, $deprecated);
+    }
+    
+    public static function updateUserMeta(int $user_id, string $meta_key, $meta_value, $prev_value = '') {
+        return update_user_meta($user_id, $meta_key, $meta_value, $prev_value);
+    }
+    
+    public static function updateUserOption( int $user_id, string $option_name, mixed $newvalue, bool $global = false) {
+        return update_user_option($user_id, $option_name, $newvalue, $global);
+    }
 }
